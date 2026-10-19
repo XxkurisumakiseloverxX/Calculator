@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css" />
+<script src="index.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<div class="otherotherotherWrapper">
+<div class="otherotherWrapper">
+    <p id="output">.</p>
+    <p id="input">.</p>
+</div>
+<div class="otherWrapper">
+    <div class="parenthesis">
+        <button onclick="appendChar('(')">(</button>
+        <button onclick="appendChar(')')">)</button>
+    </div>
+    <div class="history">
+        <button onclick="">-></button>
+        <button onclick=""><-</button>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="digitGrid">
+        <button onclick="appendChar(7)">7</button>
+        <button onclick="appendChar(8)">8</button>
+        <button onclick="appendChar(9)">9</button>
+        <button onclick="appendChar(4)">4</button>
+        <button onclick="appendChar(5)">5</button>
+        <button onclick="appendChar(6)">6</button>
+        <button onclick="appendChar(1)">1</button>
+        <button onclick="appendChar(2)">2</button>
+        <button onclick="appendChar(3)">3</button>
+        <button class="exception" onclick="appendChar('.')">.</button>
+        <button onclick="appendChar(0)">0</button>
+        <button class="exception" type="submit" onSubmit="evaluate()">=</button>
+    </div>
+    <div class="operatorGrid">
+        <button onclick="appendChar('^')">^</button>
+        <button onclick="appendChar('%')">%</button>
+        <button onclick="appendChar('/')">/</button>
+        <button onclick="appendChar('*')">*</button>
+        <button onclick="appendChar('-')">-</button>
+        <button onclick="appendChar('+')">+</button>
+    </div>
+</div><div>
+</body>
+</html>
