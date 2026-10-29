@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
 </head>
-<body>
+<body onload="meow()">
 <div class="otherotherotherWrapper">
 <div class="otherotherWrapper">
     <p id="output">.</p>
-    <p id="input">.</p>
+    <label for="input">label</label><input id="input" type="text" />
 </div>
 <div class="otherWrapper">
     <div class="parenthesis">
@@ -18,8 +18,8 @@
         <button onclick="appendChar(')')">)</button>
     </div>
     <div class="history">
-        <button onclick="">-></button>
-        <button onclick=""><-</button>
+        <button onclick="seekPrev()"><-</button>
+        <button onclick="seekNext()">-></button>
     </div>
 </div>
 <div class="wrapper">
@@ -35,7 +35,7 @@
         <button onclick="appendChar(3)">3</button>
         <button class="exception" onclick="appendChar('.')">.</button>
         <button onclick="appendChar(0)">0</button>
-        <button class="exception" type="submit" onSubmit="evaluate()">=</button>
+        <button class="exception" onclick="evaluateStuff()">=</button>
     </div>
     <div class="operatorGrid">
         <button onclick="appendChar('^')">^</button>
@@ -45,6 +45,7 @@
         <button onclick="appendChar('-')">-</button>
         <button onclick="appendChar('+')">+</button>
     </div>
-</div><div>
+</div>
+</div>
 </body>
 </html>
