@@ -1,52 +1,94 @@
-.digitGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 15px;
+* {
+    box-sizing: border-box;
 }
 
-.wrapper {
-    display: flex;
-    gap: 15px;
-    button {
-        background-color: orange;
-        font-size: 20px;
-    }
-    .exception {
-        background-color: white;
-    }
-    .operatorGrid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        gap: 5px;
-        button {
-            background-color: white;
-            text-decoration: none;
+body {
+    display: grid;
+    min-height: 100vh;
+    margin: 0;
+    place-items: center;
+}
 
-        }
-    }
+.otherotherotherWrapper {
+    display: grid;
+    width: min(100% - 32px, 320px);
+    gap: 12px;
+    padding: 14px;
+    background-color: black;
+}
+
+.otherotherWrapper {
+    display: grid;
+    gap: 6px;
+    color: white;
+}
+
+#output {
+    min-height: 1.5em;
+    margin: 0;
+    padding: 8px;
+    color: black;
+    background-color: white;
+    text-align: right;
+}
+
+#input {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.otherWrapper,
+.parenthesis,
+.history,
+.wrapper {
+    display: grid;
+    gap: 8px;
 }
 
 .otherWrapper {
-    display: flex;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: 1fr 1fr;
 }
-.otherotherWrapper {
+
+.parenthesis,
+.history {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wrapper {
+    grid-template-columns: 3fr 1fr;
+}
+
+.digitGrid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
 }
-.otherotherotherWrapper {
-    background-color: black;
-    width: 175px;
-    padding: 10px;
-    #output {
-        background-color: white;
-    }
-    #input {
-        background-color: white;
-    }
+
+.operatorGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+}
+
+button {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 6px;
+    border: 0;
+    background-color: orange;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.exception,
+.operatorGrid button,
+.history button {
+    background-color: white;
 }
