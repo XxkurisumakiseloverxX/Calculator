@@ -1,41 +1,55 @@
-let exp = "";
-let history = new Array(100);
+let history = [];
 let curr = 0;
 
 function meow() {
-    const stored = sessionStorage.getItem("history");
-    if (stored) {
-        history = JSON.parse(stored);
-    }
-    else {
-        history = [];
-        sessionStorage.setItem("history", JSON.stringify(history));
+    history = JSON.parse(sessionStorage.getItem("history") || "[]");
+    curr = history.length;
+}
+
+function saveHistory() {
+    sessionStorage.setItem("history", JSON.stringify(history));
+}
+
+function loadHistory() {
+    history = JSON.parse(sessionStorage.getItem("history") || "[]");
+    curr = Math.min(curr, history.length);
+}
+
+function seekPrev() {
+    loadHistory();
+    if (curr > 0) {
+        curr -= 1;
+        document.getElementById("input").value = history[curr];
     }
 }
 
 function seekNext() {
-    if (curr === 0) {
-        document.getElementById("input").value = history[history.length-1];
-        return 1;
+    loadHistory();
+    if (curr < history.length - 1) {
+        curr += 1;
+        document.getElementById("input").value = history[curr];
     }
-    document.getElementById("input").value = history[curr];
-    return 0;
-}
-function seekPrev() {
-    if (curr === history.length - 1) {
-        document.getElementById("input").value = history[0];
-        return 1;
+    else if (curr === history.length - 1) {
+        curr = history.length;
+        document.getElementById("input").value = "";
     }
-    document.getElementById("input").value = history[curr++];
-    return 0;
 }
 
 function evaluateStuff() {
-    document.getElementById("output").innerHTML = JSON.stringify(eval(exp));
-    history.push(exp)
-    sessionStorage.setItem("history", JSON.stringify(history));
+        document.getElementById("output").textContent = JSON.stringify(eval(document.getElementById("input").value.replace("^", "**")));
+        history.push(document.getElementById("input").value);
+        curr = history.length;
+        saveHistory();
 }
+
 function appendChar(x) {
-    document.getElementById("input").value = exp+=x;
-    document.getElementById("input").onchange = () => {exp += document.getElementById("input").value;};
+    document.getElementById("input").value += x;
+    curr = history.length;
+}
+
+function handleInputKeydown(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        evaluateStuff();
+    }
 }

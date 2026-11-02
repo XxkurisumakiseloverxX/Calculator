@@ -39,9 +39,18 @@ body {
     font-size: 18px;
 }
 
-.otherWrapper,
-.parenthesis,
-.history,
+.otherWrapper {
+    display: grid;
+    gap: 8px;
+}
+.parenthesis {
+    display: grid;
+    gap: 8px;
+}
+.history {
+    display: grid;
+    gap: 8px;
+}
 .wrapper {
     display: grid;
     gap: 8px;
@@ -51,7 +60,9 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
-.parenthesis,
+.parenthesis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .history {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -87,8 +98,12 @@ button {
     cursor: pointer;
 }
 
-.exception,
-.operatorGrid button,
+.exception {
+    background-color: white;
+}
 .history button {
+    background-color: white;
+}
+.operatorGrid button {
     background-color: white;
 }

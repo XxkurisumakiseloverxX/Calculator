@@ -12,7 +12,6 @@
     <div class="otherotherotherWrapper">
         <div class="otherotherWrapper">
             <p id="output">meow</p>
-            <label for="input">Expression</label>
             <input id="input" type="text" onkeydown="handleInputKeydown(event)">
         </div>
         <div class="otherWrapper">
@@ -21,8 +20,8 @@
                 <button type="button" onclick="appendChar(')')">)</button>
             </div>
             <div class="history">
-                <button type="button" onclick="seekPrev()" aria-label="Previous equation">&larr;</button>
-                <button type="button" onclick="seekNext()" aria-label="Next equation">&rarr;</button>
+                <button type="button" onclick="seekPrev()"><-</button>
+                <button type="button" onclick="seekNext()">-></button>
             </div>
         </div>
         <div class="wrapper">
